@@ -169,3 +169,6 @@ async function splitCell() {
   //    need_count = xudt_balance / QUANTITY_PER_CELL;
   // 进行对应转账的操作
 }
+
+// 周期性检查
+setInterval(splitCell, parseInt(process.env.CHECK_INTERVAL || 60))
