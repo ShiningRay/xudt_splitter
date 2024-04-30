@@ -2,7 +2,13 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ES2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "dist",
+    "rootDir": "src",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "CommonJS",
     "composite": false,
     "resolveJsonModule": true,
@@ -18,8 +24,14 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": true
   },
-  "include": ["local/**/*.ts", "queue/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "local/**/*.ts",
+    "queue/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

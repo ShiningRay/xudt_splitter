@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Examples used for RGBPP assets issuance, transfer, and jumping between BTC and CKB",
   "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
   "dependencies": {
     "@exact-realty/multipart-parser": "^1.0.13",
     "@nervosnetwork/ckb-sdk-utils": "^0.109.1",
