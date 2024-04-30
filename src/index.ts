@@ -210,8 +210,13 @@ async function splitCell() {
       const txHash = await collector.getCkb().rpc.sendTransaction(signedTx, 'passthrough');
       logger.info(`split cell tx hash: ${txHash}`)
     }
-  } catch (error) {
-    logger.error(error)
+  } catch (error:unknown) {
+    // 使用类型断言将 error 断言为 Error 类型
+    if (error instanceof Error) {
+      logger.error(error);
+    } else {
+      logger.error(new Error(`An unexpected error occurred: ${String(error)}`));
+    }
   }
 
 
