@@ -12,8 +12,8 @@ async function splitCell() {
     console.log('start split cell')
     // 初始化收集器
     const collector = new Collector({
-      ckbNodeUrl: 'https://testnet.ckb.dev/rpc',
-      ckbIndexerUrl: 'https://testnet.ckb.dev/indexer',
+      ckbNodeUrl: process.env.CKB_NODE_URL || 'https://testnet.ckb.dev/rpc',
+      ckbIndexerUrl: process.env.CKB_INDEXER_URL || 'https://testnet.ckb.dev/indexer',
     });
     // 是否是主网
     const isMainnet = process.env.IS_MAINNET === 'true'
@@ -210,7 +210,7 @@ async function splitCell() {
       const txHash = await collector.getCkb().rpc.sendTransaction(signedTx, 'passthrough');
       logger.info(`split cell tx hash: ${txHash}`)
     }
-  } catch (error:unknown) {
+  } catch (error: unknown) {
     // 使用类型断言将 error 断言为 Error 类型
     if (error instanceof Error) {
       logger.error(error);
